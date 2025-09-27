@@ -1,4 +1,5 @@
 import { posts } from './data/posts';
+import styles from "./App.module.css";
 //import PostCard from './components/PostCard';
 
 function App() {
@@ -9,36 +10,33 @@ function App() {
   return (
     <div className="">
       
-      <header>
-       <div className="container">
-      <div className="blog">Blog</div>
-      <div className="contact">お問い合わせ</div>
-      </div>
-      </header>
+    <header>
+      <div className={styles.container}>
+        <div className={styles.blog}>Blog</div>
+        <div className={styles.contact}>お問い合わせ</div>
+    </div>
+    </header>
 
-      <main className="abc">
+    <main>
 
-        {posts.map((post) => {
-          const text = post.content.replace(/<br\s*\/?>/gi, '\n');
+      {posts.map((post) => {
 
-          return (
-        <div key={post.id} className="card">
-          <div className="day">
-            <span className="date">{formatDate(post.createdAt)}</span>
-            <div className="categories">
-            {post.categories.map((category, index) => (
-              <div key={index} className="category">
-              {category}
+        return (
+        <div key={post.id} className={styles.card}>
+            <div className={styles.day}>
+              <span>{formatDate(post.createdAt)}</span>
+              <div className={styles.categories}>
+              {post.categories.map((category, index) => (
+                <div key={index} className={styles.category}>
+                {category}
+              </div>
+              ))}   
             </div>
-            ))}   
           </div>
+          <p className={styles.title}>{post.title}</p>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
-        <p className="title">{post.title}</p>
-        <p className="comment" style={{ whiteSpace: 'pre-line' }}>
-        {text}
-        </p>
-        </div>
-          );
+            );
         })}
 
 
