@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { posts } from './data/posts';
-import styles from "./App.module.css";
+import styles from "./ArticleDetail.module.css";
 
 export default function ArticleDetails() {
 
