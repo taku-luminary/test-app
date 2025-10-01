@@ -3,39 +3,6 @@
   margin: 40px auto 0px auto;        /* ← これで画面中央に来る */
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  height: 70px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-}
-
-.blog {
-  padding: 20px;
-  color:#fff;
-  font-weight: bold;
-  font-size:14px;
-}
-
-.contact {
-  color:#fff;
-  margin-left: auto; 
-  padding: 12px 16px;
-  text-decoration:none;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid lightgray;
-  width: 700px;
-  padding: 12px 45px 2px 13px;
-  margin: 30px auto; 
-  display:block;
-  text-decoration:none;
-  color:inherit;
-}
-
 .dayCategory{
   max-width: 800px;
   display: flex;
@@ -68,3 +35,8 @@
   font-weight: normal; 
   font-size: 22px;
 }
+
+.detailContent{
+  padding: 0 px;   
+}
+
