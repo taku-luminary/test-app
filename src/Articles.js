@@ -62,7 +62,7 @@ function Articles() {
   }
 
   // ③ 空（0件）
-  if (!posts || posts.length === 0) {
+  if (posts.length === 0) {
     return <p>記事がありません。</p>;
   }
   return (
