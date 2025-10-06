@@ -57,41 +57,39 @@ export default function Contact() {
       setMessageError("");
     }
     
-    if (!hasError) {
-      try {
-        setIsSubmitting(true); 
-        const response = await fetch(
-          "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts",
-          {
-            method: "POST",   
-            headers: {
-              "Content-Type": "application/json",  // JSON送信を宣言
-            },
-            body: JSON.stringify({                 // データをJSON形式に変換
-              name: name,
-              email: email,
-              message: message,
-            }),
-          }
-        );
-
-        // 成功確認
-        if (!response.ok) {
-          throw new Error("送信に失敗しました。");
+  if (hasError) return; 
+    try {
+      setIsSubmitting(true); 
+      const response = await fetch(
+        "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts",
+        {
+          method: "POST",   
+          headers: {
+            "Content-Type": "application/json",  // JSON送信を宣言
+          },
+          body: JSON.stringify({                 // データをJSON形式に変換
+            name: name,
+            email: email,
+            message: message,
+          }),
         }
+      );
 
-        //  成功時の処理
-        alert("送信しました。");
-        setName("");
-        setEmail("");
-        setMessage("");
-      } catch (error) {
-        alert("エラー：" + error.message);
-      } finally {
-        setIsSubmitting(false); // 送信終了
+      // 成功確認
+      if (!response.ok) {
+        throw new Error("送信に失敗しました。");
       }
+
+      //  成功時の処理
+      alert("送信しました。");
+      clearAll();
+    } catch (error) {
+      alert("エラー：" + error.message);
+    } finally {
+      setIsSubmitting(false); // 送信終了
     }
-  };
+  }
+  
 
   return (
     <div className={styles.all}>
